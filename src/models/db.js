@@ -1,5 +1,6 @@
 import Mongoose from 'mongoose'
 import './user'
+import './workout'
 
 const env = process.env.ENVIRONMENT || 'DEV'
 

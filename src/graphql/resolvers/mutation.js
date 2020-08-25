@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import { JWT_SECRET } from '../../config'
 
 const User = Mongoose.model('User')
+const Workout = Mongoose.model('Workout')
 
 
 
@@ -36,7 +37,6 @@ async function login (root, args, context) {
 
 async function createUser (root, args, context) {
   const { input } = args
-
   const user = await User.create({
     ...input,
     id: Mongoose.Types.ObjectId()
@@ -44,7 +44,27 @@ async function createUser (root, args, context) {
   return user
 }
 
+async function updateUser (roots, args, context) {
+  const { input } = args
+  const user = await User.findByIdAndUpdate(input.id, { ...input },{ new: true })
+  console.log(user, input)
+  return user
+}
+
+async function addWorkout (roots, args, context) {
+  const { input } = args
+  const workout = await Workout.create({
+    ...input,
+    id: Mongoose.Types.ObjectId()
+  })
+  return workout
+}
+
+
+
 export {
   login,
-  createUser
+  addWorkout,
+  createUser,
+  updateUser
 }

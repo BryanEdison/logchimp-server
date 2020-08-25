@@ -7,6 +7,7 @@ type User {
   createdAt: Date!
   profilePicture: String
   bio: String
+  workoutEquipment: [String]
 }
 input UserProfileInfo {
   _id: ID!

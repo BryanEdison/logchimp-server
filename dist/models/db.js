@@ -6,6 +6,8 @@ var _mongoose2 = _interopRequireDefault(_mongoose);
 
 require('./user');
 
+require('./workout');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var env = process.env.ENVIRONMENT || 'DEV';

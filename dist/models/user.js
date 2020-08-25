@@ -13,7 +13,8 @@ var UserSchema = new _mongoose2.default.Schema({
   email: String,
   dateJoined: { type: Date, default: Date.now },
   profilePicture: String,
-  itemsForSale: String
+  itemsForSale: String,
+  workoutEquipment: Array
 });
 
 module.exports = _mongoose2.default.model('User', UserSchema);

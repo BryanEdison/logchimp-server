@@ -7,7 +7,8 @@ var UserSchema = new Mongoose.Schema({
   email: String,
   dateJoined: { type: Date, default: Date.now },
   profilePicture: String,
-  itemsForSale: String
+  itemsForSale: String,
+  workoutEquipment: Array
 })
 
 module.exports = Mongoose.model('User', UserSchema)

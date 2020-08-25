@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.createUser = exports.login = undefined;
+exports.updateUser = exports.createUser = exports.addWorkout = exports.login = undefined;
 
 var _extends2 = require('babel-runtime/helpers/extends');
 
@@ -110,6 +110,66 @@ var createUser = function () {
   };
 }();
 
+var updateUser = function () {
+  var _ref3 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee3(roots, args, context) {
+    var input, user;
+    return _regenerator2.default.wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            input = args.input;
+            _context3.next = 3;
+            return User.findByIdAndUpdate(input.id, (0, _extends3.default)({}, input), { new: true });
+
+          case 3:
+            user = _context3.sent;
+
+            console.log(user, input);
+            return _context3.abrupt('return', user);
+
+          case 6:
+          case 'end':
+            return _context3.stop();
+        }
+      }
+    }, _callee3, this);
+  }));
+
+  return function updateUser(_x7, _x8, _x9) {
+    return _ref3.apply(this, arguments);
+  };
+}();
+
+var addWorkout = function () {
+  var _ref4 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee4(roots, args, context) {
+    var input, workout;
+    return _regenerator2.default.wrap(function _callee4$(_context4) {
+      while (1) {
+        switch (_context4.prev = _context4.next) {
+          case 0:
+            input = args.input;
+            _context4.next = 3;
+            return Workout.create((0, _extends3.default)({}, input, {
+              id: _mongoose2.default.Types.ObjectId()
+            }));
+
+          case 3:
+            workout = _context4.sent;
+            return _context4.abrupt('return', workout);
+
+          case 5:
+          case 'end':
+            return _context4.stop();
+        }
+      }
+    }, _callee4, this);
+  }));
+
+  return function addWorkout(_x10, _x11, _x12) {
+    return _ref4.apply(this, arguments);
+  };
+}();
+
 var _mongoose = require('mongoose');
 
 var _mongoose2 = _interopRequireDefault(_mongoose);
@@ -127,6 +187,9 @@ var _config = require('../../config');
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var User = _mongoose2.default.model('User');
+var Workout = _mongoose2.default.model('Workout');
 
 exports.login = login;
+exports.addWorkout = addWorkout;
 exports.createUser = createUser;
+exports.updateUser = updateUser;

@@ -7,7 +7,12 @@ const Workout = Mongoose.model('Workout')
 
 async function generateWorkout (root, args, context) {
   let equipment = args.input
-  let workout = await Workout.find({name: equipment})
+  let workoutList = await Workout.find({workoutEquipment: equipment})
+  let workoutListLength = workoutList.length - 1
+  function getRandomWorkout(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  let workout = workoutList[getRandomWorkout(workoutListLength)]
   return workout
 }
 

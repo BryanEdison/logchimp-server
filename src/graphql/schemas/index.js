@@ -15,7 +15,7 @@ type AuthPayload {
   user: User!
 }
 type Query {
-  generateWorkout(input: String): [Workout]
+  generateWorkout(input: String): Workout
   currentUser: User
   viewUsers: [User]
 }

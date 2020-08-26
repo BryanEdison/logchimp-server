@@ -18,7 +18,7 @@ var _resolvers2 = _interopRequireDefault(_resolvers);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var typeDefs = '\nscalar Date\n\ntype AuthPayload {\n  token: String!\n  user: User!\n}\ntype Query {\n  generateWorkout(input: String): [Workout]\n  currentUser: User\n  viewUsers: [User]\n}\ntype Mutation {\n  createUser(input: UserInput!): User\n  login(input: LoginInput!): AuthPayload\n  updateUser(input: UserInput!): User\n  addWorkout(input: WorkoutInput): Workout\n\n}\n';
+var typeDefs = '\nscalar Date\n\ntype AuthPayload {\n  token: String!\n  user: User!\n}\ntype Query {\n  generateWorkout(input: String): Workout\n  currentUser: User\n  viewUsers: [User]\n}\ntype Mutation {\n  createUser(input: UserInput!): User\n  login(input: LoginInput!): AuthPayload\n  updateUser(input: UserInput!): User\n  addWorkout(input: WorkoutInput): Workout\n\n}\n';
 
 var schema = (0, _graphqlTools.makeExecutableSchema)({
   typeDefs: [typeDefs, _input.typeDefs, _user.typeDefs, _workout.typeDefs],
